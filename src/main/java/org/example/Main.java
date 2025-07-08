@@ -1,17 +1,48 @@
 package org.example;
+import java.util.*;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+/**
+ *  1. Reads an integer
+ *  2. Handle both invalid format and array index out of bounds
+ *
+ * */
 public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+    public static int returnIntElement(int[] numberArray, int chosenIndex) {
+        return numberArray[chosenIndex];
+    }
+
+    public static void main(String[] args) {
+        int[] numbers = {10, 20, 30, 40, 50};
+        Scanner sc = new Scanner(System.in);
+        int arrLength = numbers.length - 1;
+
+
+        System.out.print("Enter an index number: (0-" + arrLength + "): ");
+
+        try {
+            int indexNumberEntered = sc.nextInt();
+            int elementReceived = returnIntElement(numbers, indexNumberEntered);
+            System.out.println("The element of the index you entered is: " + elementReceived);
+        } catch (InputMismatchException e) {
+            System.out.println("Incorrect input!");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Index does not exist!");
+        } finally {
+            System.out.println("Success!");
         }
+
+        sc.nextLine();
+
+
+
+//
+//        for (int number: numbers) {
+//            System.out.print(numbers);
+//        }
+
+        System.out.print("\nEnter the index of the number: ");
+
+
     }
 }
